@@ -13,63 +13,79 @@
     <title>Home</title>
 </head>
 
-<body>
-    <header class="header-container">
-        <div class="top-header-container d-flex align-items-start flex-row justify-content-between">
-            <a class="navbar-brand logo-container" href="./index.html"></a>
-            <nav class="navbar navbar-expand-lg">
-                <div class="container-fluid">
-
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul class="navbar-nav nav nav-fill d-flex flex-column flex-md-row">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    Events
-                                </a>
-                                <ul class="dropdown-menu color-ul">
-                                    <li><a class="dropdown-item nav-link" href="./upcomings-events.html">Upcomings Events</a>
-                                    </li>
-                                    <li><a class="dropdown-item nav-link" href="./past-events.html">Past Events</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./contact.html">Contact</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./stats.html">Stats</a>
-                            </li>
-                        </ul>
+<div id="app">
+    <body>
+        <header class="header-container">
+            <div class="top-header-container d-flex align-items-start flex-row justify-content-between">
+                <a class="navbar-brand logo-container" href="./index.html"></a>
+                <nav class="navbar navbar-expand-lg">
+                    <div class="container-fluid">
+    
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                            <ul class="navbar-nav nav nav-fill d-flex flex-column flex-md-row">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Events
+                                    </a>
+                                    <ul class="dropdown-menu color-ul">
+                                        <li><a class="dropdown-item nav-link" href="./upcomings-events.html">Upcomings Events</a>
+                                        </li>
+                                        <li><a class="dropdown-item nav-link" href="./past-events.html">Past Events</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./contact.html">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./stats.html">Stats</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
+                </nav>
+            </div>
+        </header>
+        <main class="main-container d-flex align-items-center justify-content-center">
+            <div class="card card-container d-flex align-items-center">
+                <img :src="eventCard.image" class="card-img-details" alt="eventCard.name">
+                <div class="card-img-overlay d-flex flex-column justify-content-end">
+                  <h5 class="card-title align-self-center">{{eventCard.name}}</h5>
+                  <p class="card-text align-self-center">{{eventCard.description}}</p>
+                  <div class="d-flex flex-wrap justify-content-between">
+                    <p class="card-text text-muted text-distance">Date: {{eventCard.date}}</p>
+                    <p class="card-text text-muted text-distance">Place: {{eventCard.place}}</p>
+                    <p class="card-text text-muted text-distance" v-if="eventCard.assistance">Assistance:  {{eventCard.assistance}}</p>
+                    <p class="card-text text-muted text-distance" v-if="eventCard.estimate">Estimate: {{eventCard.estimate}}</p>
+                    <p class="card-text text-muted text-distance">Capacity:{{eventCard.capacity}}</p>
+                    <p class="card-text text-muted text-distance">Category: {{eventCard.category}}</p>
+                    <p class="card-text text-muted text-distance">Price: {{eventCard.price}}</p>
+                  </div>
                 </div>
-            </nav>
-        </div>
-    </header>
-    <main class="main-container d-flex align-items-center justify-content-center">
-        <div class="card card-container d-flex align-items-center">
-
-        </div>
-    </main>
-    <footer class="footer-container d-flex justify-content-between">
-        <div class="social-container">
-            <i class="fa-brands fa-square-instagram fa-2x"></i>
-            <i class="fa-brands fa-facebook-f fa-2x"></i>
-            <i class="fa-brands fa-square-whatsapp fa-2x"></i>
-        </div>
-        <h3 class="footer-cohort align-self-center">Cohort 37</h3>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-        crossorigin="anonymous"></script>
-    <script src="./assets/js/details.js"></script>
-</body>
+            </div>
+        </main>
+        <footer class="footer-container d-flex justify-content-between">
+            <div class="social-container">
+                <i class="fa-brands fa-square-instagram fa-2x"></i>
+                <i class="fa-brands fa-facebook-f fa-2x"></i>
+                <i class="fa-brands fa-square-whatsapp fa-2x"></i>
+            </div>
+            <h3 class="footer-cohort align-self-center">Cohort 37</h3>
+        </footer>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+            crossorigin="anonymous"></script>
+        <script src="./assets/js/details.js"></script>
+    </body>
+    </div>
 
 </html>
