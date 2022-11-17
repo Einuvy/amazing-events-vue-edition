@@ -1,12 +1,9 @@
 const { createApp } = Vue;
 
-const queryString = location.search;
-const params = new URLSearchParams(queryString);
-const id = params.get('id')
-
 const app = createApp({
     data() {
         return {
+            id: new URLSearchParams(location.search).get('id'),
             information: [],
             events: [],
             eventCard: '',
@@ -18,7 +15,7 @@ const app = createApp({
             .then(data => {
                 this.information = data
                 this.events = this.information.events;
-                this.eventCard = this.events.find(event => (event._id.toString()) === id)
+                this.eventCard = this.events.find(event => (event._id.toString()) === this.id)
             })
             .catch(error => console.error(error))
     },
